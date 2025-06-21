@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="oceantic[v1].png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inder&display=swap" rel="stylesheet" />
+  <title>Oceanic | The Marine Marvel</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+        overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Inder', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      min-height: 100vh;
+      width: 100%;
+      position: relative;
+      overflow-y: auto;
+    }
+
+    .header-container svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .profile-container {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+    }
+
+    .username {
+      position: absolute;
+      top: 90px;
+      right: 20px;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .main-title {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      font-size: 4vw;
+      color: #fff;
+    }
+
+    .activity-button {
+      position: absolute;
+      left: 80px;
+      bottom: 150px;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .activity-button:hover {
+      transform: scale(1.1);
+    }
+
+    .textbox-container {
+      position: absolute;
+      bottom: 15%;
+      left: 5%;
+      width: 90%;
+      max-width: 1360px;
+      height: auto;
+      cursor: text;
+    }
+
+    .textbox-background,
+    .textbox-outline {
+      width: 100%;
+      height: 160px;
+      border-radius: 20px;
+      border: 6px solid #7b86ff;
+      position: absolute;
+      z-index: 1;
+    }
+
+    .textbox-wave1,
+    .textbox-wave2 {
+      width: 100.5%;
+      height: auto;
+      position: absolute;
+      top: -7px;
+      left: -5px;
+      z-index: 2;
+    }
+
+    .run-button {
+      position: absolute;
+      bottom: 35px;
+      right: 110px;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      z-index: 3;
+    }
+
+    .textbox-components {
+      position: absolute;
+      bottom: -40px;
+      right: 100px;
+      display: flex;
+      gap: 10px;
+      z-index: 3;
+    }
+
+    .input-component {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .input-component:hover {
+      transform: scale(1.2);
+    }
+
+    .welcome-message {
+      position: absolute;
+      bottom: 45px;
+      left: 100px;
+      font-size: 2rem;
+      color: #5865f2;
+      z-index: 3;
+    }
+
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 6vw;
+      }
+
+      .welcome-message {
+        font-size: 1.5rem;
+        bottom: 220px;
+      }
+
+      .textbox-container {
+        height: 140px;
+      }
+
+      .textbox-background,
+      .textbox-outline {
+        height: 130px;
+      }
+
+      .run-button {
+        bottom: 70px;
+        right: 20px;
+      }
+
+      .textbox-components {
+        bottom: 10px;
+        right: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header-container">
+    <svg
+        width="1440"
+        height="262"
+        viewBox="0 0 1440 262"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+        d="M114.81 204.571L-3.81152 178.451L-1.48209 103L1445.83 147.684L1443.5 223.134L1380.05 214.129L1302.06 204.676L1211.49 196.375L1101.83 188.806L1009.59 185.958L937.77 187.924L842.132 197.522L718.834 209.128L626.156 220.358L527.138 225.668C502.144 227.979 405.38 229.616 340.409 227.61C275.438 225.604 241.234 221.759 232.253 220.087L114.81 204.571Z"
+        fill="#8D97FF"
+        stroke="#8D97FF"
+        />
+        <path
+        d="M119.371 188.934L0 166.486V91H1448V166.486L1384.3 159.444L1306.06 152.402L1215.28 146.9L1105.44 142.718H1013.15L941.426 146.9L846.13 159.444L723.248 174.849L630.961 188.934L532.154 197.297C507.243 200.378 410.576 205 345.574 205C280.572 205 246.265 202.212 237.237 200.819L119.371 188.934Z"
+        fill="#5865F2"
+        stroke="#5865F2"
+        />
+        <path d="M-9 0H1442V91H-9V0Z" fill="#5865F2" />
+    </svg>
+  </div>
+
+  <!-- Profile -->
+  <div class="profile-container">
+    <svg
+        width="81"
+        height="78"
+        viewBox="0 0 81 78"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <ellipse cx="40.5" cy="35" rx="35.5" ry="34" fill="#CED2FF" />
+        <path
+        d="M40.5 2C59.595 2 75 16.8149 75 35C75 53.1852 59.595 68 40.5 68C21.405 68 6 53.1852 6 35C6 16.8149 21.405 2 40.5 2Z"
+        stroke="#FDFDFF"
+        stroke-width="2"
+        />
+    </svg>
+  </div>
+  <div class="username">Username</div>
+
+  <!-- Main Title -->
+  <h1 class="main-title">Oceanic</h1>
+
+  <!-- Activity Button -->
+  <div class="activity-button">
+    <svg
+        width="74"
+        height="74"
+        viewBox="0 0 82 82"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <rect width="82" height="82" rx="17" fill="#CED2FF" />
+        <rect
+        x="19.4473"
+        y="15.0436"
+        width="20"
+        height="20"
+        rx="2"
+        transform="rotate(12.7199 19.4473 15.0436)"
+        fill="#7B86FF"
+        />
+        <circle cx="58.5" cy="26.5" r="11.5" fill="#7B86FF" />
+        <path
+        d="M25.7679 50C26.5378 48.6667 28.4623 48.6667 29.2321 50L37.4593 64.25C38.2291 65.5833 37.2668 67.25 35.7272 67.25H19.2728C17.7332 67.25 16.7709 65.5833 17.5407 64.25L25.7679 50Z"
+        fill="#7B86FF"
+        />
+    </svg>
+  </div>
+
+  <!-- Welcome Message -->
+  <div class="welcome-message">Welcome user,</div>
+
+  <!-- Textbox -->
+  <div class="textbox-container">
+    <div class="textbox-background">
+      <svg
+        class="textbox-wave2"
+        width="1340"
+        height="160"
+        viewBox="0 0 1367 160"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        >
+        <path
+            d="M75.8693 86.7847L0.624858 120.305L0.624858 142.305L2.34271 147.305L7.49631 153.805L15.513 158.305L27.5379 159.305L1344.56 159.305L1350.46 158.305L1357.73 154.805L1363.45 148.805L1366.33 141.305L1366.33 16.8048L1365.17 11.805L1360.02 7.305L1355.44 3.80499L1347.42 1.30483L1311.92 1.30486L1266.68 1.30486L1189.95 1.30486L1094.53 31.5108L954.027 78.1185L807.028 120.698L707.482 136.531L656.562 138.361L567.304 129.317L468.291 107.837L344.199 77.1366L250.064 61.8745L152.229 65.3923L75.8693 86.7847Z"
+            fill="#D7DAFF"
+            stroke="#D7DAFF"
+        />
+        </svg>
+        <svg
+        class="textbox-wave1"
+        width="1340"
+        height="159"
+        viewBox="0 0 1360 159"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        >
+        <path
+            d="M73.0152 80.5L1 113.5V143L9.00168 155.5L19.8611 158H1342.43L1355 154L1359 143.5V15.5L1352.14 6.5L1342.43 1H1328.71H1306.42L1266.41 12.5L1213.26 28L1091.52 63L949.199 102L800.597 137L700.576 148.5H649.708L561.118 137L463.383 113.5L341.072 80.5L247.909 63H150.174L73.0152 80.5Z"
+            fill="#C5CAFF"
+            stroke="#C5CAFF"
+        />
+        </svg>
+    </div>
+    <div class="textbox-outline"></div>
+  </div>
+
+  <!-- Run Button -->
+  <div class="run-button">
+    <svg
+        width="84"
+        height="84"
+        viewBox="0 0 84 84"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+        d="M26.79 30.2173C27.0044 23.3047 34.611 19.2069 40.5015 22.8307L59.5476 34.5477C65.4538 38.1812 65.2052 46.8479 59.1003 50.1367L39.3611 60.7706C33.2562 64.0594 25.882 59.4992 26.0969 52.5682L26.79 30.2173Z"
+        fill="white"
+        />
+    </svg>
+  </div>
+
+  <!-- Input Components -->
+  <div class="textbox-components">
+    <div class="input-component">
+      <svg
+        width="34"
+        height="34"
+        viewBox="0 0 34 34"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        >
+        <path
+            d="M5.33333 32H28.6667C30.5076 32 32 30.5076 32 28.6667V5.33333C32 3.49238 30.5076 2 28.6667 2H5.33333C3.49238 2 2 3.49238 2 5.33333V28.6667C2 30.5076 3.49238 32 5.33333 32ZM5.33333 32L23.6667 13.6667L32 22M13.6667 11.1667C13.6667 12.5474 12.5474 13.6667 11.1667 13.6667C9.78595 13.6667 8.66667 12.5474 8.66667 11.1667C8.66667 9.78595 9.78595 8.66667 11.1667 8.66667C12.5474 8.66667 13.6667 9.78595 13.6667 11.1667Z"
+            stroke="#7B86FF"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+      </svg>
+    </div>
+    <div class="input-component">
+      <svg
+        width="37"
+        height="39"
+        viewBox="0 0 37 39"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        >
+        <path
+            d="M34.7333 18.4167L19.4166 33.7334C17.5402 35.6098 14.9953 36.6639 12.3416 36.6639C9.68798 36.6639 7.14303 35.6098 5.26662 33.7334C3.39021 31.857 2.33606 29.312 2.33606 26.6584C2.33606 24.0047 3.39021 21.4598 5.26662 19.5834L20.5833 4.2667C21.8342 3.01576 23.5309 2.31299 25.3 2.31299C27.069 2.31299 28.7657 3.01576 30.0166 4.2667C31.2676 5.51763 31.9703 7.21427 31.9703 8.98336C31.9703 10.7525 31.2676 12.4491 30.0166 13.7L14.6833 29.0167C14.0578 29.6422 13.2095 29.9936 12.325 29.9936C11.4404 29.9936 10.5921 29.6422 9.96662 29.0167C9.34115 28.3912 8.98977 27.5429 8.98977 26.6584C8.98977 25.7738 9.34115 24.9255 9.96662 24.3L24.1166 10.1667"
+            stroke="#7B86FF"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+      </svg>
+    </div>
+    <div class="input-component mic-input">
+        <svg width="30" height="30" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bar 1 -->
+  <rect x="8" y="27" width="15" height="60" rx="7.5" fill="#7B86FF" />
+  <!-- Bar 2 (tallest) -->
+  <rect x="36" y="5" width="15" height="90" rx="7.5" fill="#7B86FF" />
+  <!-- Bar 3 -->
+  <rect x="65" y="23" width="15" height="60" rx="7.5" fill="#7B86FF" />
+  <!-- Bar 4 (shortest) -->
+  <rect x="93" y="35" width="15" height="40" rx="7.5" fill="#7B86FF" />
+</svg>
+
+
+    </div>
+  </div>
+
+</body>
+</html>
